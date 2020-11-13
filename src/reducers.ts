@@ -1,5 +1,5 @@
-import { connectRouter } from 'connected-react-router';
-import { combineReducers } from 'redux';
+import { connectRouter } from 'connected-react-router/immutable';
+import { combineReducers } from 'redux-immutable';
 
 import history from './libs/history';
 

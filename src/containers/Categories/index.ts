@@ -1,21 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
+import {Map}  from 'immutable';
 import { createSelector } from 'reselect';
 
 import * as actions from './actions';
-import {  CategoryState } from './types';
+import { CategoryState, CategoryStateMap } from './types';
 
-interface SelectorProps {
-  categories: CategoryState,
-}
 
 const selector = createSelector(
-  (state: SelectorProps) => state,
-  (sub) => sub.categories,
+  (state: Map<string, any>): Map<string, CategoryStateMap> => state.get('categories'),
+  (sub) => sub.toJS(),
 );
 
 export function useCategories() {
-  const state = useSelector(selector);
-  const dispatch = useDispatch();
+  const state = useSelector(selector) as CategoryState;
+  const dispatch = useDispatch();  
 
   return {
     ...state,

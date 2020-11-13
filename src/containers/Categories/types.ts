@@ -1,5 +1,3 @@
-import { FETCH } from "./constants";
-
 export interface Category {
     id: number;
     label: string;
@@ -11,6 +9,7 @@ export interface CategoryState {
     data: Category[] | undefined;
 }
 
+export type CategoryStateMap = boolean | Category[] | undefined;
 
 export interface CategoryAction {
     type: string;

@@ -1,20 +1,23 @@
-import { CategoryAction, CategoryState } from "./types";
+import Immutable  from 'immutable';
+
+import { CategoryAction, CategoryStateMap  } from "./types";
 import * as actions from "./constants";
 
-const initialState: CategoryState = {
+
+const initialState = Immutable.Map<CategoryStateMap>({
     fetching: false,
     error: false,
     data: [],
-};
+});
 
-function categoryReducer(state = initialState, action: CategoryAction): CategoryState {
+function categoryReducer(state = initialState, action: CategoryAction) {
     switch (action.type) {
         case actions.FETCH:
-            return { ...state, fetching: true, error: false, };
+            return state.set('fetching', true).set('error', false);
         case actions.FETCH_SUCCESS:
-            return { ...state, fetching: false, data: action.payload };
+            return state.set('fetching', false).set('data', action.payload);
         case actions.FETCH_FAILED:
-            return { ...state, fetching: false, error: true };
+           return state.set('fetching', false).set('error', true);
         default:
             return state;
     }

@@ -8,5 +8,9 @@ export default function HomePage() {
         categories.fetch();
     }, []);
 
+
+    console.log(categories);
+    
+
     return <h1>HomePage</h1>;
 }
