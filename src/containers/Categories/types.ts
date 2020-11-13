@@ -13,6 +13,6 @@ export interface CategoryState {
 
 
 export interface CategoryAction {
-    type: typeof FETCH;
+    type: string;
     payload?: Category[];
 }

@@ -1,16 +1,16 @@
-import { connectRouter } from 'connected-react-router/immutable';
-import { combineReducers } from 'redux-immutable';
+import { connectRouter } from 'connected-react-router';
+import { combineReducers } from 'redux';
 
 import history from './libs/history';
 
 import categories from './containers/Categories/reducer'
 
-export default function createReducer(injectedReducers = {}) {
-  const rootReducer = combineReducers({
-    router: connectRouter(history),
+function createReducer(injectedReducers = {}) {
+  return combineReducers({
     categories,
+    router: connectRouter(history),
     ...injectedReducers,
   });
-
-  return rootReducer;
 }
+
+export default createReducer;
