@@ -1,18 +1,15 @@
-import { fromJS, Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
-import { CategoryAction, CategoryStateMap } from './types';
+import { ProductAction, ProductStateMap } from './types';
 import * as actions from './constants';
 
-const initialState = Map<CategoryStateMap>({
+const initialState = Map<ProductStateMap>({
   fetching: false,
   error: false,
   data: [],
 });
 
-function categoryReducer(
-  state = initialState,
-  action: CategoryAction,
-): Map<string, CategoryStateMap> {
+function ProductReducer(state = initialState, action: ProductAction): Map<string, ProductStateMap> {
   switch (action.type) {
     case actions.FETCH:
       return state.set('fetching', true).set('error', false);
@@ -25,4 +22,4 @@ function categoryReducer(
   }
 }
 
-export default categoryReducer;
+export default ProductReducer;

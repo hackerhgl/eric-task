@@ -13,8 +13,8 @@ const fetchSaga = function* fetchSaga() {
   }
 };
 
-function* categoriesSaga(): Generator {
+function* defaultProductSaga(): Generator {
   yield takeLatest(constants.FETCH, fetchSaga);
 }
 
-export default categoriesSaga;
+export default defaultProductSaga;

@@ -1,0 +1,47 @@
+[
+        {
+            "id": 1,
+            "categoryId": 1,
+            "label": "Slims"
+        },
+        {
+            "id": 2,
+            "categoryId": 1,
+            "label": "Potatoe Sticks"
+        }, 
+        {
+            "id": 3,
+            "categoryId": 1,
+            "label": "Slanty"
+        },
+        {
+            "id": 11,
+            "categoryId": 2,
+            "label": "Pepsi"
+        },
+        {
+            "id": 22,
+            "categoryId": 2,
+            "label": "Marinda"
+        }, 
+        {
+            "id": 33,
+            "categoryId": 2,
+            "label": "7UP"
+        },
+        {
+            "id": 111,
+            "categoryId": 3,
+            "label": "Cadbury"
+        },
+        {
+            "id": 222,
+            "categoryId": 3,
+            "label": "Perk"
+        }, 
+        {
+            "id": 333,
+            "categoryId": 3,
+            "label": "Now"
+        }
+]
