@@ -2,8 +2,8 @@ import React from 'react';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import { Route, Switch } from 'react-router-dom';
 
-import HomePage from './pages/Home';
-import history from './libs/history';
+import history from 'libs/history';
+import HomePage from 'pages/Home';
 
 function WebApp(): JSX.Element {
   return (
