@@ -7,13 +7,13 @@ import HomePage from './pages/Home';
 import history from './libs/history';
 
 function WebApp() {
-    return (
+  return (
     <ConnectedRouter history={history}>
         <Switch>
           <Route path="/" exact component={HomePage}  />
         </Switch>
       </ConnectedRouter>
-      );
+    );
 }
 
 export default WebApp;

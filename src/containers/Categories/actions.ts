@@ -6,7 +6,7 @@ export const fetch = () : CategoryAction => ({
 });
 
 export const fetchSuccess = (payload?: Category[]) : CategoryAction => ({
-    type: constants.FETCH,
+    type: constants.FETCH_SUCCESS,
     payload,
 });
 
