@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+
 import useCategories from '../../containers/Categories';
 
-export default function HomePage() {
-    const categories = useCategories();
+export default function HomePage(): JSX.Element {
+  const categories = useCategories();
+  useEffect(() => {
+    categories.fetch();
+  }, []);
 
-    useEffect(() => {
-        categories.fetch();
-    }, []);
-
-    console.log(categories);
-    
-
-    return <h1>HomePage</h1>;
+  return <h1>HomePage</h1>;
 }

@@ -1,4 +1,4 @@
-const scope = "Category";
+const scope = 'Category';
 
 export const FETCH = `${scope}/FETCH`;
 export const FETCH_SUCCESS = `${scope}/FETCH_SUCCESS`;

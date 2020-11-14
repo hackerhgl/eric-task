@@ -3,25 +3,18 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 import * as constants from './constants';
 import * as actions from './actions';
 import * as api from './api';
-import { Category } from "./types";
 
-const fetchSaga = function* fetchSaga(p:any) {
+const fetchSaga = function* fetchSaga() {
   try {
     const data = yield call(api.fetch);
-    
-    yield put(actions.fetchSuccess(data as Category[]));
+    yield put(actions.fetchSuccess(data));
   } catch (e) {
     yield put(actions.fetchFailed());
   }
 };
 
-let didRun = false;
-function* defaultCategorySaga() {
-  if (didRun) {
-    return;
-  }
-  didRun = true;
+function* defaultCategorySaga(): Generator {
   yield takeLatest(constants.FETCH, fetchSaga);
-};
+}
 
 export default defaultCategorySaga;

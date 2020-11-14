@@ -1,10 +1,7 @@
+import { AxiosResponse } from 'axios';
 import api from '../../libs/api';
 
-export const fetch = async () => {
-    try {
-        const resp = await api.get('/categories.json');
-        return resp.data;
-    } catch (error) {
-        throw error;        
-    }
-}
+export const fetch = async (): Promise<AxiosResponse> => {
+  const resp = await api.get('/categories.json');
+  return resp.data;
+};
