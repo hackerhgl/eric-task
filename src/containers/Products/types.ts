@@ -4,22 +4,7 @@ export interface Product {
   categoryId: number;
 }
 
-export interface ProductCombo {
-  id: number;
-  combo: {
-    [id: number]: number;
-  };
-}
-
-export interface ProductComboRaw {
-  id: number;
-  combo: [
-    {
-      categoryId: number;
-      productId: number;
-    },
-  ];
-}
+export type ProductCombo = number[];
 
 export interface ProductState {
   fetching: boolean;

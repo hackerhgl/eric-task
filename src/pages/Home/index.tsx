@@ -34,6 +34,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function arrayMatch(source: number[], target: number[], productId: number) {
+  // eslint-disable-next-line
+  for (const val of source) {
+    if (target.indexOf(productId) === -1 || target.indexOf(val) === -1) {
+      return false;
+    }
+  }
+  return true;
+}
+
 export default function HomePage(): JSX.Element {
   const categories = useCategories();
   const products = useProducts();
@@ -47,9 +57,31 @@ export default function HomePage(): JSX.Element {
     setComboState({ ...combo, [activeCategory]: !selected ? productId : null });
   }
 
+  const comboValues = Object.values(combo)
+    .filter((v) => !!v)
+    .map(Number);
+
   function productsFilter(product: Product) {
+    let allow = false;
+
+    if (comboValues.length) {
+      products.combos.forEach((pCombo) => {
+        if (comboValues.length === 1 && combo[product.categoryId] === comboValues[0]) {
+          allow = true;
+          return;
+        }
+        const check = arrayMatch(comboValues, pCombo, product.id);
+        if (check) {
+          allow = true;
+        }
+      });
+    } else {
+      allow = true;
+    }
+
     const checkCat = product.categoryId === activeCategory;
-    return checkCat;
+
+    return checkCat && allow;
   }
 
   useEffect(() => {

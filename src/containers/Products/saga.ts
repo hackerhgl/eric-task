@@ -1,18 +1,16 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 
+import { Product, ProductCombo } from './types';
 import * as constants from './constants';
 import * as actions from './actions';
 import * as api from './api';
-import { Product, ProductCombo, ProductComboRaw } from './types';
-import { parseCombos } from './utils';
 
 const fetchSaga = function* fetchSaga() {
   try {
     const products: Product[] = yield call(api.fetch);
-    const rawCombos: ProductComboRaw[] = yield call(api.fetchDeals);
-    const parsedCombos: ProductCombo[] = parseCombos(rawCombos);
+    const productCombos: ProductCombo[] = yield call(api.fetchDeals);
 
-    yield put(actions.fetchSuccess(products, parsedCombos));
+    yield put(actions.fetchSuccess(products, productCombos));
   } catch (e) {
     yield put(actions.fetchFailed());
   }
