@@ -1,13 +1,14 @@
-import { Product, ProductAction } from './types';
+import { Product, ProductAction, ProductCombo } from './types';
 import * as constants from './constants';
 
 export const fetch = (): ProductAction => ({
   type: constants.FETCH,
 });
 
-export const fetchSuccess = (payload?: Product[]): ProductAction => ({
+export const fetchSuccess = (products?: Product[], combos?: ProductCombo[]): ProductAction => ({
   type: constants.FETCH_SUCCESS,
-  payload,
+  products,
+  combos,
 });
 
 export const fetchFailed = (): ProductAction => ({
