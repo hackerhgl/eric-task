@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     padding: theme.spacing(2),
   },
+  space: {
+    padding: theme.spacing(2),
+  },
 }));
 
 function arrayMatch(source: number[], target: number[], productId: number) {
@@ -129,6 +132,19 @@ export default function HomePage(): JSX.Element {
           ))}
         </List>
       </Paper>
+      {comboValues.length ? (
+        <Paper className={styles.paper} elevation={3}>
+          <Typography variant="h5" className={styles.space}>
+            Selected Combo
+          </Typography>
+          <Divider />
+          <Typography className={styles.space}>
+            {comboValues
+              .map((paroductId) => products.data.find((v) => v.id === paroductId)?.label)
+              .join(', ')}
+          </Typography>
+        </Paper>
+      ) : null}
     </Container>
   );
 }
